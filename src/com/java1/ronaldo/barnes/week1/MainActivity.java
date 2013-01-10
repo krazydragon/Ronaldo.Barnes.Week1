@@ -3,6 +3,7 @@ package com.java1.ronaldo.barnes.week1;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -21,7 +22,7 @@ public class MainActivity extends Activity {
         
         lLayout = new LinearLayout(this);
         lLayout.setOrientation(LinearLayout.VERTICAL);
-        lParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        lParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         lLayout.setLayoutParams(lParams);
         
         TextView tview = new TextView(this);
@@ -35,6 +36,16 @@ public class MainActivity extends Activity {
         
         Button b = new Button(this);
         b.setText(getString(R.string.test));
+        b.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		}); 
+        	
+        	
         
         
         
@@ -46,6 +57,8 @@ public class MainActivity extends Activity {
         side.addView(b);
         
         lLayout.addView(side);
+        TextView answer = new TextView(this);
+        lLayout.addView(answer);
         
         setContentView(lLayout);
         
