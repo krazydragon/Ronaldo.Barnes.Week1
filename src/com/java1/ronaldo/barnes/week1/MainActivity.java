@@ -25,22 +25,27 @@ public class MainActivity extends Activity {
         lLayout.setLayoutParams(lParams);
         
         TextView tview = new TextView(this);
-        tview.setText("Test");
+        tview.setText(getString(R.string.test));
         
         lLayout.addView(tview);
         
         EditText eText = new EditText(this);
-        eText.setHint("test"); 
-        lLayout.addView(eText);
+        eText.setHint(getString(R.string.test)); 
+        
         
         Button b = new Button(this);
-        b.setText("test");
-        lLayout.addView(b);
+        b.setText(getString(R.string.test));
         
         
         
+        LinearLayout side = new LinearLayout(this);
         
+        side.setOrientation(LinearLayout.HORIZONTAL);
+        side.setLayoutParams(lParams);
+        side.addView(eText);
+        side.addView(b);
         
+        lLayout.addView(side);
         
         setContentView(lLayout);
         
