@@ -3,29 +3,46 @@ package com.java1.ronaldo.barnes.week1;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-	LinearLayout llayout;
-	LinearLayout.LayoutParams lparams;
+	LinearLayout lLayout;
+	LinearLayout.LayoutParams lParams;
+	
 	
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        llayout = new LinearLayout(this);
-        llayout.setOrientation(LinearLayout.VERTICAL);
-        lparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        llayout.setLayoutParams(lparams);
+        lLayout = new LinearLayout(this);
+        lLayout.setOrientation(LinearLayout.VERTICAL);
+        lParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        lLayout.setLayoutParams(lParams);
         
         TextView tview = new TextView(this);
         tview.setText("Test");
         
-        llayout.addView(tview);
-        setContentView(llayout);
+        lLayout.addView(tview);
+        
+        EditText eText = new EditText(this);
+        eText.setHint("test"); 
+        lLayout.addView(eText);
+        
+        Button b = new Button(this);
+        b.setText("test");
+        lLayout.addView(b);
+        
+        
+        
+        
+        
+        
+        setContentView(lLayout);
         
     }
 
