@@ -13,6 +13,9 @@ public class MainActivity extends Activity {
 
 	LinearLayout lLayout;
 	LinearLayout.LayoutParams lParams;
+	Boolean goodGuess;
+	EditText eText;
+	TextView answer;
 	
 	
 	
@@ -26,22 +29,28 @@ public class MainActivity extends Activity {
         lLayout.setLayoutParams(lParams);
         
         TextView tview = new TextView(this);
-        tview.setText(getString(R.string.test));
+        tview.setText(getString(R.string.main_text));
         
         lLayout.addView(tview);
         
-        EditText eText = new EditText(this);
-        eText.setHint(getString(R.string.test)); 
+        eText = new EditText(this);
+        eText.setHint(getString(R.string.editText_hint)); 
         
         
         Button b = new Button(this);
-        b.setText(getString(R.string.test));
+        b.setText("Pick");
         b.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				
+				int magic = Integer.parseInt(eText.getText().toString());
+				answer.setText("Wait for it...");
+				for (int i = 0; i < magic; i++)
+				{
+					/// a delay that is too fast to see
+				}
+				answer.setText(compareNumbers(magic));
 			}
 		}); 
         	
@@ -57,7 +66,7 @@ public class MainActivity extends Activity {
         side.addView(b);
         
         lLayout.addView(side);
-        TextView answer = new TextView(this);
+        answer = new TextView(this);
         lLayout.addView(answer);
         
         setContentView(lLayout);
@@ -69,6 +78,24 @@ public class MainActivity extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
+    }
+    
+    String compareNumbers(int inputedNumber)
+    {
+    	String result = null; 
+    	if(inputedNumber == getResources().getInteger(R.integer.random_num) )
+    	{
+    		result = "I knew your number was 7!";
+    		goodGuess = true;
+    		return result;
+    	}
+    	else
+    		result = "Why did you change your number from 7?";
+    		goodGuess = false;
+    		
+		return result;
+
+    		
     }
     
 }
