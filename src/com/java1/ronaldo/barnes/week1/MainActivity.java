@@ -48,6 +48,8 @@ public class MainActivity extends Activity {
 				answer.setText("Wait for it...");
 				for (int i = 0; i < magic; i++)
 				{
+					answer.setText("" + i + "...");
+					
 					/// a delay that is too fast to see
 				}
 				answer.setText(compareNumbers(magic));
